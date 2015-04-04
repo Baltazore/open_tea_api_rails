@@ -13,7 +13,7 @@ class Api::TeasController < ApplicationController
     if @tea.save
       render json: @tea, status: 200
     else
-      render nothing: true, status: 403
+      render json: :empty, status: 403
     end
   end
 
@@ -32,9 +32,9 @@ class Api::TeasController < ApplicationController
     @tea = Tea.find(params[:id])
 
     if @tea.destroy
-      render nothing: true, status: 200
+      render json: :empty, status: 200
     else
-      render nothing: true, status: 403
+      render json: :empty, status: 403
     end
   end
 
