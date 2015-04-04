@@ -4,13 +4,14 @@ class Api::TeasController < ApplicationController
   end
 
   def show
-    render json: Tea.find(params[:id])
+    render json: Tea.find(params[:id]), status: 200
   end
 
   def create
     @tea = Tea.new tea_params
-    if @tea.create
-      render json: @tea
+
+    if @tea.save
+      render json: @tea, status: 200
     else
       render nothing: true, status: 403
     end
@@ -20,8 +21,8 @@ class Api::TeasController < ApplicationController
     @tea = Tea.find(params[:id])
     @tea.assign_attributes tea_params
 
-    if @tea.update
-      render json: @tea
+    if @tea.save
+      render json: @tea, status: 200
     else
       render json: @tea, status: 403
     end
@@ -36,4 +37,9 @@ class Api::TeasController < ApplicationController
       render nothing: true, status: 403
     end
   end
+
+  protected
+    def tea_params
+      params.require(:tea).permit(:name, :description)
+    end
 end
