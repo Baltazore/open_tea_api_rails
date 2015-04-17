@@ -16,3 +16,6 @@
 !/log/.keep
 /tmp
 /config/deploy/production.rb
+*.pem
+config/database.yml
+config/secrets.yml
