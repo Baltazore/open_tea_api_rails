@@ -15,7 +15,11 @@ gem 'active_model_serializers', '0.9.3'
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use Capistrano for deployment
-gem 'capistrano-rails', '~> 1.1.1', group: :development
+group :development do
+  gem 'capistrano-rails', '~> 1.1'
+  gem 'capistrano-bundler', '~> 1.1'
+  gem 'capistrano-rbenv', "~> 2.0"
+end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
