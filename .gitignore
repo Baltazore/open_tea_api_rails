@@ -19,3 +19,5 @@
 *.pem
 config/database.yml
 config/secrets.yml
+.rbenv-vars
+
