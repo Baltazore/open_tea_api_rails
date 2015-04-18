@@ -34,5 +34,6 @@ end
 
 group :production do
   # Use Puma as the app server
+  gem 'pg', '0.18.1'
   gem 'puma', '~> 2.11'
 end
